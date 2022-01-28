@@ -14,12 +14,13 @@ public class MarkdownParseTest {
     ArrayList<String> list1 = new ArrayList<>();
 
     @Test
-    public void getLinksTest() throws IOException{
-        Path nameOfFile = Path.of("test-file.md");
+    public void getLinksTest1() throws IOException{
+        Path nameOfFile = Path.of("test-file3.md");
         String  fileContents = Files.readString(nameOfFile);
         list1.add("https://something.com");
         list1.add("some-page.html");
         assertEquals("This should work", list1 , MarkdownParse.getLinks(fileContents));
     }
+    
 }
 
