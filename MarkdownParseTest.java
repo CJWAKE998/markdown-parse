@@ -11,16 +11,55 @@ public class MarkdownParseTest {
         assertEquals(2, 1 + 1);
     }
 
-    ArrayList<String> list1 = new ArrayList<>();
+    
 
     @Test
-    public void getLinksTest1() throws IOException{
+    public void getLinksTest0() throws IOException{
+        ArrayList<String> list1 = new ArrayList<>();
         Path nameOfFile = Path.of("break0.md");
         String  fileContents = Files.readString(nameOfFile);
         list1.add("https://something.com");
         list1.add("some-page.html");
         assertEquals("This should work", list1 , MarkdownParse.getLinks(fileContents));
     }
+
+    @Test
+    public void getLinksTest1() throws IOException{
+        ArrayList<String> list1 = new ArrayList<>();
+        Path nameOfFile = Path.of("break1.md");
+        String  fileContents = Files.readString(nameOfFile);
+        list1.add("https://something.com");
+        list1.add("some-page.html");
+        assertEquals("This should work", list1 , MarkdownParse.getLinks(fileContents));
+    }
+
+    @Test
+    public void getLinksTest2() throws IOException{
+        ArrayList<String> list1 = new ArrayList<>();
+        Path nameOfFile = Path.of("break2.md");
+        String  fileContents = Files.readString(nameOfFile);
+        list1.add("https://something().com");
+        assertEquals("This should work", list1 , MarkdownParse.getLinks(fileContents));
+    }
+
+    @Test
+    public void getLinksTest3() throws IOException{
+        ArrayList<String> list1 = new ArrayList<>();
+        Path nameOfFile = Path.of("break3.md");
+        String  fileContents = Files.readString(nameOfFile);
+        assertEquals("This should work", list1 , MarkdownParse.getLinks(fileContents));
+    }
+
+
+
+    @Test
+    public void getLinksTest9() throws IOException{
+        ArrayList<String> list1 = new ArrayList<>();
+        Path nameOfFile = Path.of("break9.md");
+        String  fileContents = Files.readString(nameOfFile);
+        assertEquals("This should work", list1 , MarkdownParse.getLinks(fileContents));
+    }
+
     
 }
 
