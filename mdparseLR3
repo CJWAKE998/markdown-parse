@@ -1,0 +1,5 @@
+scp -r *.java *.md lib/ cs15lwi22ahk@ieng6.ucsd.edu:markdown-parse
+ssh cs15lwi22ahk@ieng6.ucsd.edu; cd markdown-parse
+cd markdown-parse
+javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.12.jar MarkdownParseTest.java
+java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.12.jar org.junit.runner.JUnitCore MarkdownParseTest
